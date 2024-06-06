@@ -69,7 +69,7 @@ local anim = rubato.timed {
 
 -- volume --
 
-awesome.connect_signal("signal::vol", function(val)
+awesome.connect_signal("vol::value", function(mute, val)
 	anim.target = value
 	info:get_children_by_id("text")[1].text = value
 end)
