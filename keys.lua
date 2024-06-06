@@ -17,9 +17,9 @@ keys.globalkeys = gears.table.join(
   --Hardware ( Laptop Users )
   awful.key({}, 'XF86MonBrightnessUp', function() awful.spawn.with_shell('brightnessctl -q s +10%') end, { description = "Brightness +", group = "hardware" }),
   awful.key({}, 'XF86MonBrightnessDown', function() awful.spawn.with_shell('brightnessctl -q s 10%-') end, { description = "Brightness -", group = "hardware" }),
-  awful.key({}, 'XF86AudioRaiseVolume', function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ +5%') end, { description = "Volume +", group = "hardware" }),
-  awful.key({}, 'XF86AudioLowerVolume', function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ -5%') end, { description = "Volume -", group = "hardware" }),
-  awful.key({}, 'XF86AudioMute', function() awful.spawn.with_shell('wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle') end, { description = "Toggle mute", group = "hardware" }),
+  awful.key({}, 'XF86AudioRaiseVolume', function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ +5%') awesome.emit_signal("open::osd") end, { description = "Volume +", group = "hardware" }),
+  awful.key({}, 'XF86AudioLowerVolume', function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ -5%') awesome.emit_signal("open::osd") end, { description = "Volume -", group = "hardware" }),
+  awful.key({}, 'XF86AudioMute', function() awful.spawn.with_shell('wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle') awesome.emit_signal("open::osd") end, { description = "Toggle mute", group = "hardware" }),
   
   awful.key({}, "XF86AudioPlay", function () awful.spawn("playerctl play-pause") end, {description = "play/pause music", group = "media"}),
   awful.key({}, "XF86AudioStop", function () awful.spawn("playerctl stop") end, {description = "stop music", group = "media"}),
@@ -40,7 +40,7 @@ keys.globalkeys = gears.table.join(
   awful.key({mod}, 'c', function() awful.util.spawn('lite-xl') end, { description = "Launch code editor (lite-xl)", group = "Launcher" }),
   awful.key({mod}, 'w', function() awful.util.spawn('firefox') end, { description = "Launch browser (firefox)", group = "Launcher" }),
   awful.key({mod}, 'e', function() awful.util.spawn('thunar') end, { description = "Launch file manager (thunar)", group = "Launcher" }),
-
+  awful.key({'Ctrl', 'Shift'}, 'Escape', function() awful.util.spawn('gnome-system-monitor') end, { description = "Launch system monitor", group = "Launcher" }),
   -- Misc
   awful.key({mod}, 'l', function() lock_screen_show() end, { description = "Lock screen", group = "Misc" }),
   awful.key({}, 'Print', function() awful.util.spawn('flameshot gui') end, { description = "Take screenshot", group = "Misc" }),
@@ -94,19 +94,9 @@ for i = 1, tags do
                     client.focus:move_to_tag(tag)
                 end
             end
-        end,
-    },
-    
-  -- Move window to tag
-  awful.key({mod, 'Ctrl', 'Shift', 'Alt'}, '#'..i + 9,
-    function ()
-      if client.focus then
-        local tag = client.focus.screen.tags[i]
-        if tag then
-          client.focus:move_to_tag(tag)
         end
-     end
-    end))
+    }
+  )
 end
 
 -- Set globalkeys

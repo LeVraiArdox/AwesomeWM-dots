@@ -22,6 +22,7 @@ local req = {
   'client',
   'awful.autofocus',
   'batscript',
+  'osd',
 }
 
 for _, x in pairs(req) do
