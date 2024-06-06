@@ -1,4 +1,4 @@
-require("lockscreen").init()
+#require("lockscreen").init()
 local beautiful = require("beautiful")
 -- Variables
 local keys = {}
@@ -21,6 +21,11 @@ keys.globalkeys = gears.table.join(
   awful.key({}, 'XF86AudioLowerVolume', function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ -5%') end, { description = "Volume -", group = "hardware" }),
   awful.key({}, 'XF86AudioMute', function() awful.spawn.with_shell('wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle') end, { description = "Toggle mute", group = "hardware" }),
   
+  awful.key({}, "XF86AudioPlay", function () awful.spawn("playerctl play-pause") end, {description = "play/pause music", group = "media"}),
+  awful.key({}, "XF86AudioStop", function () awful.spawn("playerctl stop") end, {description = "stop music", group = "media"}),
+  awful.key({}, "XF86AudioNext", function () awful.spawn("playerctl next") end, {description = "next track", group = "media"}),
+  awful.key({}, "XF86AudioPrev", function () awful.spawn("playerctl previous") end, {description = "previous track", group = "media"}),
+
 
   -- Window management
   --awful.key({'Mod1'}, 'Tab', function() awful.client.focus.byidx(1) end),
@@ -31,7 +36,7 @@ keys.globalkeys = gears.table.join(
 
   -- Applications
   awful.key({mod}, 'Return', function() awful.util.spawn('alacritty') end, { description = "Launch terminal (alacritty)", group = "Launcher" }),
-  awful.key({mod}, 'a', function() awful.util.spawn('rofi -show drun') end, { description = "Launch app center (rofi)", group = "Launcher" }),
+  awful.key({mod}, 'a', function() awful.util.spawn('rofi -show drun -config ~/.config/awesome/rofi/config.rasi') end, { description = "Launch app center (rofi)", group = "Launcher" }),
   awful.key({mod}, 'c', function() awful.util.spawn('lite-xl') end, { description = "Launch code editor (lite-xl)", group = "Launcher" }),
   awful.key({mod}, 'w', function() awful.util.spawn('firefox') end, { description = "Launch browser (firefox)", group = "Launcher" }),
   awful.key({mod}, 'e', function() awful.util.spawn('thunar') end, { description = "Launch file manager (thunar)", group = "Launcher" }),

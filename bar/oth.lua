@@ -18,7 +18,7 @@ M.sep = wibox.widget {
 
 local c = function (a) return function() awful.spawn.with_shell(a) end end
 
-M.search = btn('', c'rofi -show drun', _, _, 10)
+M.search = btn('', c'rofi -show drun -config ~/.config/awesome/rofi/config.rasi', _, _, 10)
 
 -- local col = function()
 --   return awful.spawn.easy_async_with_shell('. ~/usr/local/bin/pluck', function (out)
@@ -30,4 +30,3 @@ M.search = btn('', c'rofi -show drun', _, _, 10)
 M.scr = btn('', c'flameshot gui', _, _, 10)
 
 return M
-
