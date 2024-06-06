@@ -10,7 +10,7 @@ M.cal = wibox.widget {
       },
       {
         align = 'center',
-        format="%A, %B %e",
+        format="%A%e %B",
         refresh=1,
         widget = wibox.widget.textclock
       },
@@ -27,3 +27,4 @@ M.cal = wibox.widget {
 }
 
 return M
+

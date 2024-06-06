@@ -32,7 +32,7 @@ local sliders = wibox.widget {
       {
         {
           font = beautiful.icofont,
-          text = 'S',
+          text = '',
           widget = wibox.widget.textbox,
         },
         sli.mem,

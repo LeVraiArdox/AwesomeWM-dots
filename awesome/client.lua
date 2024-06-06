@@ -18,3 +18,4 @@ end)
 client.connect_signal("property::maximized", function(c)
   c.maximized = false -- no need for maximize
 end)
+

@@ -1,5 +1,6 @@
-local sys = require("bar.sys")
-local oth = require("bar.oth")
+local sys  = require("bar.sys")
+local oth  = require("bar.oth")
+local tray = require("bar.tray")
 
 local sys = wibox.widget {
   {
@@ -38,6 +39,17 @@ local opt = wibox.widget {
   bg = beautiful.bg,
   widget = wibox.container.background,
 }
+
+--local trayico = wibox.widget {
+--  {
+--    tray,
+--    spacing = dpi(10),
+--    layout = wibox.layout.fixed.vertical,
+--  },
+--  shape = help.rrect(beautiful.br),
+--  bg = beautiful.bg,
+--  widget = wibox.container.background,
+--}
 
 sys:buttons(gears.table.join(
   awful.button({}, 1, function ()
@@ -87,6 +99,7 @@ awful.screen.connect_for_each_screen(function(s)
     { -- Bottom
       {
         opt,
+        --trayico,
         sys,
         spacing = dpi(10),
         layout = wibox.layout.fixed.vertical,

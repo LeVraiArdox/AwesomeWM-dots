@@ -64,6 +64,20 @@ theme.notification_width = dpi(225)
 theme.notification_max_height = dpi(80)
 theme.notification_icon_size = dpi(80)
 
+-- Colors
+beautiful.hotkeys_bg = theme.bg
+beautiful.hotkeys_fg = theme.fg
+beautiful.hotkeys_border_width = 0
+beautiful.hotkeys_modifiers_fg = "#ff79c6"
+beautiful.hotkeys_label_bg = "#bd93f9"
+beautiful.hotkeys_label_fg = "#282a36"
+beautiful.hotkeys_group_margin = 20
+
+-- Font
+beautiful.hotkeys_font = "Sans 12"
+beautiful.hotkeys_description_font = "Sans 10"
+
+
 theme.separator_color = theme.fg2
 
 theme.titlebar_minimize_button_focus= gears.color.recolor_image(theme_path.."circle.svg", theme.ok)
@@ -77,3 +91,4 @@ theme.icon_theme = "Reversal"
 theme.playerctl_player  = {"mpd",  "%any"}
 
 return theme
+

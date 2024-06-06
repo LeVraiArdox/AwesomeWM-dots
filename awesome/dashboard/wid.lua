@@ -7,7 +7,7 @@ local c = function (a) return function() awful.spawn.with_shell(a) end end
 M.vol, M.v_up = btn('', c'pulsemixer --unmute', '', c'pulsemixer --mute')
 M.wifi, M.w_up = btn('', c'nmcli radio wifi on', '', c'nmcli radio wifi off')
 M.blu, M.b_up = btn('', c'bluetoothctl power on', '', c'bluetoothctl power off')
-M.nig, M.n_up = btn('', c'redshift -x && redshift -O 4000K', '', c'redshift -x')
+M.nig, M.n_up = btn('', c'redshift -x && redshift -O 5900K', '', c'redshift -x')
 M.eco, M.e_up = btn('', c'powerprofilesctl set power-saver', '', c'powerprofilesctl set balanced')
 
 
