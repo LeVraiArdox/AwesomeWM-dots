@@ -8,10 +8,10 @@ Dependencies are in `deps.txt` file and required fonts are in `fonts` directory.
 
 ![alt text](image.png)
 
-Clone this repo and copy `awesome` and `alacritty` folders in your .config directory:
+Clone this repo to `.config/awesome` and copy `alacritty` folder in your .config directory:
 ```sh
-git clone https://github.com/levraiardox/AwesomeWM-dots.git && cd AwesomeWM-dots
-cp -r alacritty awesome ~/.config/
+git clone https://github.com/levraiardox/AwesomeWM-dots.git $HOME/.config/awesome && cd $HOME/.config/awesome
+cp -r alacritty ~/.config/
 ```
 
 You can copy the fonts into `/usr/share/fonts/TTF/` (recommended) or in `.fonts/`.

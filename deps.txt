@@ -13,8 +13,6 @@ rofi
 xsettingsd
 zsh
 brightnessctl
-pactl
-wpctl
 firefox
 nautilus
 acpi
@@ -25,4 +23,7 @@ galculator
 baobab
 gnome-characters
 mousepad
+xdotool
+wmctrl
+libinput-gestures
 
