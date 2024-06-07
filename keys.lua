@@ -1,5 +1,6 @@
 #require("lockscreen").init()
 local beautiful = require("beautiful")
+local sig = require("signals")
 -- Variables
 local keys = {}
 local hotkeys_popup = require("awful.hotkeys_popup")
@@ -17,9 +18,9 @@ keys.globalkeys = gears.table.join(
   --Hardware ( Laptop Users )
   awful.key({}, 'XF86MonBrightnessUp', function() awful.spawn.with_shell('brightnessctl -q s +10%') awesome.emit_signal("open::osd") end, { description = "Brightness +", group = "hardware" }),
   awful.key({}, 'XF86MonBrightnessDown', function() awful.spawn.with_shell('brightnessctl -q s 10%-') awesome.emit_signal("open::osd") end, { description = "Brightness -", group = "hardware" }),
-  awful.key({}, 'XF86AudioRaiseVolume', function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ +5%') awesome.emit_signal("open::osd") end, { description = "Volume +", group = "hardware" }),
-  awful.key({}, 'XF86AudioLowerVolume', function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ -5%') awesome.emit_signal("open::osd") end, { description = "Volume -", group = "hardware" }),
-  awful.key({}, 'XF86AudioMute', function() awful.spawn.with_shell('wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle') awesome.emit_signal("open::osd") end, { description = "Toggle mute", group = "hardware" }),
+  awful.key({}, 'XF86AudioRaiseVolume', function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ +5%') sig.vol() awesome.emit_signal("open::osd") end, { description = "Volume +", group = "hardware" }),
+  awful.key({}, 'XF86AudioLowerVolume', function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ -5%') sig.vol() awesome.emit_signal("open::osd") end, { description = "Volume -", group = "hardware" }),
+  awful.key({}, 'XF86AudioMute', function() awful.spawn.with_shell('wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle') sig.vol() awesome.emit_signal("open::osd") end, { description = "Toggle mute", group = "hardware" }),
   
   awful.key({}, "XF86AudioPlay", function () awful.spawn("playerctl play-pause") end, {description = "play/pause music", group = "media"}),
   awful.key({}, "XF86AudioStop", function () awful.spawn("playerctl stop") end, {description = "stop music", group = "media"}),

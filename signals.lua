@@ -102,7 +102,7 @@ gears.timer {
   call_now = true,
   autostart = true,
   callback = function()
-    M.vol()
+    --:M.vol()
     M.net()
     M.blu()
     M.mem()

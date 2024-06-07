@@ -59,19 +59,19 @@ local osd = awful.popup {
 	widget = info,
 }
 
---local anim = rubato.timed {
---	duration = 0.3,
---	easing = rubato.easing.linear,
---	subscribed = function(val)
---		info:get_children_by_id("progressbar")[1].value = val
---	end
---}
+local anim = rubato.timed {
+	duration = 0.3,
+	easing = rubato.easing.linear,
+	subscribed = function(val)
+		info:get_children_by_id("progressbar")[1].value = val
+	end
+}
 
 -- volume --
 
 awesome.connect_signal("vol::value", function(mute, val)
-	--anim.target = val
-	info:get_children_by_id("progressbar")[1].value = val
+	anim.target = val
+	--info:get_children_by_id("progressbar")[1].value = val
 	info:get_children_by_id("icon")[1].text = ""
 	if mute == 1 then
 		info:get_children_by_id("text")[1].text = "Muted"
