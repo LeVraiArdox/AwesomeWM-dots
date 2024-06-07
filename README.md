@@ -16,3 +16,5 @@ cp -r alacritty ~/.config/
 
 You can copy the fonts into `/usr/share/fonts/TTF/` (recommended) or in `$HOME/.fonts/`.
 
+## Credits
+This is a remake of <a href="https://github.com/Manas140/dotfiles"> Manas's dotfiles</a>. I didn't made everything on my own.*

@@ -94,8 +94,7 @@ awesome.connect_signal('bat::value', function(val, state)
     M.bat.opacity = 0.5
     M.bat.markup = ""
   else
-    M.bat.opacity = 1
-    M.bat.markup = ""
+    M.bat.visible = false
   end
 end)
 
