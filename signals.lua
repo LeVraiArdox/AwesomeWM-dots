@@ -5,6 +5,7 @@ local cpu = [[awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else print ($2+
 local vol = [[ str=$( pulsemixer --get-volume ); printf "$(pulsemixer --get-mute) ${str% *}\n" ]]
 local net = [[ printf "$(cat /sys/class/net/w*/operstate)~|~$(nmcli radio wifi)" ]]
 local blue = [[ bluetoothctl show | grep "Powered:" ]]
+local bright = [[brightnessctl i]]
 local fs = [[ df -h --output=used,size / | sed 's/G//g' ]]
 local temp = [[ cat /sys/class/thermal/thermal_zone0/temp ]]
 local batpercentage_cmd = [[acpi | grep -oP '\d+(?=%)']]
@@ -45,7 +46,13 @@ M.bat = function()
   end)
 end
 
-
+--M.brightness = function()
+--	awful.spawn.easy_async_with_shell(bright, function(stdout)
+--		local value = stdout:match("(%d?%d?%d?)%%")
+--		value = tonumber(value)
+--		awesome.emit_signal("bright::val", value, icon)
+--	end)
+--end
 
 M.fs = function ()
   awful.spawn.easy_async_with_shell(fs, function (out)

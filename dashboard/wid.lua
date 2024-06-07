@@ -9,7 +9,7 @@ M.wifi, M.w_up = btn('', c'nmcli radio wifi on', '', c'nmcli radio wifi of
 M.blu, M.b_up = btn('', c'bluetoothctl power on', '', c'bluetoothctl power off')
 M.nig, M.n_up = btn('', c'redshift -x && redshift -O 5900K', '', c'redshift -x')
 M.eco, M.e_up = btn('', c'powerprofilesctl set power-saver', '', c'powerprofilesctl set balanced')
-
+M.dnd, M.d_up = btn('', c'', '', c'')
 
 awesome.connect_signal('vol::value', function(mut, _)
   M.v_up(mut == 0)

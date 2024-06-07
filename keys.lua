@@ -15,8 +15,8 @@ keys.globalkeys = gears.table.join(
   awful.key({mod}, 'd', function() dashboard.toggle() end, {description="Toggle dashboard", group="awesome"}),
   awful.key({mod}, "F1", function() hotkeys_popup.show_help() end, {description="show this help window", group="awesome"}),
   --Hardware ( Laptop Users )
-  awful.key({}, 'XF86MonBrightnessUp', function() awful.spawn.with_shell('brightnessctl -q s +10%') end, { description = "Brightness +", group = "hardware" }),
-  awful.key({}, 'XF86MonBrightnessDown', function() awful.spawn.with_shell('brightnessctl -q s 10%-') end, { description = "Brightness -", group = "hardware" }),
+  awful.key({}, 'XF86MonBrightnessUp', function() awful.spawn.with_shell('brightnessctl -q s +10%') awesome.emit_signal("open::osd") end, { description = "Brightness +", group = "hardware" }),
+  awful.key({}, 'XF86MonBrightnessDown', function() awful.spawn.with_shell('brightnessctl -q s 10%-') awesome.emit_signal("open::osd") end, { description = "Brightness -", group = "hardware" }),
   awful.key({}, 'XF86AudioRaiseVolume', function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ +5%') awesome.emit_signal("open::osd") end, { description = "Volume +", group = "hardware" }),
   awful.key({}, 'XF86AudioLowerVolume', function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ -5%') awesome.emit_signal("open::osd") end, { description = "Volume -", group = "hardware" }),
   awful.key({}, 'XF86AudioMute', function() awful.spawn.with_shell('wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle') awesome.emit_signal("open::osd") end, { description = "Toggle mute", group = "hardware" }),

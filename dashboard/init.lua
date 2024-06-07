@@ -105,6 +105,7 @@ local buttons2 = wibox.widget {
       wid.vol,
       wid.nig,
       wid.eco,
+      wid.dnd,
       spacing = dpi(10),
       layout = wibox.layout.flex.horizontal,
     },
