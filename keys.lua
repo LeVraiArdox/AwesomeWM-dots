@@ -46,7 +46,6 @@ keys.globalkeys = gears.table.join(
   awful.key({mod}, 'l', function() lock_screen_show() end, { description = "Lock screen", group = "Misc" }),
   awful.key({}, 'Print', function() awful.util.spawn('flameshot gui') end, { description = "Take screenshot", group = "Misc" }),
   awful.key({mod}, 'x', function() awful.util.spawn('gpick -p') end, { description = "Color picker", group = "Misc" })
-
 )
 
 -- Keyboard Control

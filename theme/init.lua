@@ -10,6 +10,11 @@ theme.ok = "#8C977D"
 theme.err = "#B66467"
 theme.pri = "#a8a3a3"
 
+theme.red = "#B66467"
+theme.green = "#8C977D"
+theme.blue = "#8C97BD"
+theme.purple = "#8C67BD"
+
 theme.br = dpi(8)
 
 theme.wall = theme_path..'wall.png'

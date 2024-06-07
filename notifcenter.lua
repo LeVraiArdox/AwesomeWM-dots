@@ -169,7 +169,7 @@ naughty.connect_signal("request::display", function(n)
 
 	local appicon = n.icon or n.app_icon
 	if not appicon then
-		appicon = ""
+		appicon = beautiful.notification_icon
 	end
 
 	notifs_container:insert(1, create_notif(appicon, n, width))
@@ -228,7 +228,7 @@ local notif_center = awful.popup {
 	visible = false,
 	ontop = true,
 	border_width = beautiful.border_width,
-	border_color = beautiful.border_color,
+	border_color = beautiful.border_color_normal,
 	minimum_height = 585,
 	maximum_height = 585,
 	minimum_width = 490,
@@ -245,18 +245,18 @@ local notif_center = awful.popup {
 
 -- summon functions --
 
---awesome.connect_signal("open::notif_center", function()
---	awesome.emit_signal("bar::notif_center")
---	notif_center.visible = not notif_center.visible
---end)
+awesome.connect_signal("open::notif_center", function()
+	awesome.emit_signal("bar::notif_center")
+	notif_center.visible = not notif_center.visible
+end)
 
 -- hide on click --
 
---client.connect_signal("button::press", function()
---	if notif_center.visible == true then
---		awesome.emit_signal("open::notif_center")
---	end
---end)
+client.connect_signal("button::press", function()
+	if notif_center.visible == true then
+		awesome.emit_signal("open::notif_center")
+	end
+end)
 
 awful.mouse.append_global_mousebinding(
 	awful.button({ }, 1, function()
@@ -265,4 +265,3 @@ awful.mouse.append_global_mousebinding(
 		end
 	end)
 )
-
