@@ -38,7 +38,7 @@ local info = wibox.widget {
 			forced_height = 10,
 			background_color = beautiful.fg,
 			color = beautiful.fg,
-            shape = help.rrect(),
+      shape = help.rrect(),
 		},
 	}
 }
@@ -62,16 +62,20 @@ local osd = awful.popup {
 local anim = rubato.timed {
 	duration = 0.3,
 	easing = rubato.easing.linear,
-	subscribed = function(value)
-		info:get_children_by_id("progressbar")[1].value = value
+	subscribed = function(val)
+		info:get_children_by_id("progressbar")[1].value = val
 	end
 }
 
 -- volume --
 
 awesome.connect_signal("vol::value", function(mute, val)
-	anim.target = value
-	info:get_children_by_id("text")[1].text = value
+	anim.target = val
+	if mute == 1 then
+		info:get_children_by_id("text")[1].text = "Muted"
+	else
+		info:get_children_by_id("text")[1].text = val
+	end
 end)
 
 -- function --
@@ -98,3 +102,4 @@ end
 awesome.connect_signal("open::osd", function()
 	osd_toggle()
 end)
+
