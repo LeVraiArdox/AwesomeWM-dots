@@ -18,7 +18,7 @@ local info = wibox.widget {
 		spacing = 8,
 		{
 			widget = wibox.widget.textbox,
-			text = "",
+			id = "icon",
 			font = beautiful.icofont .. " 16",
 		},
 		{
@@ -36,7 +36,7 @@ local info = wibox.widget {
 			max_value = 100,
 			forced_width = 380,
 			forced_height = 10,
-			background_color = beautiful.fg,
+			background_color = beautiful.bg,
 			color = beautiful.fg,
       shape = help.rrect(),
 		},
@@ -71,10 +71,13 @@ local anim = rubato.timed {
 
 awesome.connect_signal("vol::value", function(mute, val)
 	anim.target = val
+	info:get_children_by_id("icon")[1].text = ""
 	if mute == 1 then
 		info:get_children_by_id("text")[1].text = "Muted"
+		info:get_children_by_id("progressbar")[1].color = beautiful.err
 	else
 		info:get_children_by_id("text")[1].text = val
+		info:get_children_by_id("progressbar")[1].color = beautiful.fg
 	end
 end)
 

@@ -14,4 +14,5 @@ git clone https://github.com/levraiardox/AwesomeWM-dots.git $HOME/.config/awesom
 cp -r alacritty ~/.config/
 ```
 
-You can copy the fonts into `/usr/share/fonts/TTF/` (recommended) or in `.fonts/`.
+You can copy the fonts into `/usr/share/fonts/TTF/` (recommended) or in `$HOME/.fonts/`.
+
