@@ -16,7 +16,7 @@ return function(s)
       filter   = awful.widget.tasklist.filter.currenttags,
       buttons  = tasklist_buttons,
       layout   = {
-        layout  = wibox.layout.fixed.vertical
+        layout  = wibox.layout.fixed.horizontal
       },
       style = {
         shape = help.rrect(1),
@@ -40,9 +40,10 @@ return function(s)
         create_callback = function(self, c, _, _)
           self:get_children_by_id('clienticon')[1].client = c
         end,
-        layout = wibox.layout.align.horizontal,
+        layout = wibox.layout.align.vertical,
       },
     }
   }
   return task
 end
+

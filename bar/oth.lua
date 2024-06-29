@@ -5,16 +5,18 @@ local M = {}
 -- Separator
 M.sep = wibox.widget {
   {
-    forced_height = dpi(2),
+    forced_width = dpi(2),
     shape = gears.shape.line,
+    orientation = "vertical",
     widget = wibox.widget.separator
   },
-  top = dpi(15),
-  left = dpi(5),
-  right = dpi(5),
-  bottom = dpi(15),
+  top = dpi(5),
+  left = dpi(15),
+  right = dpi(15),
+  bottom = dpi(5),
   widget = wibox.container.margin
 }
+
 
 local c = function (a) return function() awful.spawn.with_shell(a) end end
 
@@ -29,4 +31,6 @@ M.search = btn('', c'rofi -show drun -config ~/.config/awesome/rofi/config.ra
 -- M.col = btn('', c'sleep 0.1s; /usr/local/bin/pluck', _, _, 10)
 M.scr = btn('', c'flameshot gui', _, _, 10)
 
+
 return M
+

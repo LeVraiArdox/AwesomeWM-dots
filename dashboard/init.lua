@@ -145,7 +145,7 @@ local dashboard = awful.popup {
   bg = beautiful.bg,
   ontop = true,
   placement = function(c)
-    (awful.placement.bottom_left)(c, { margins = { left = 60, bottom = 10 } })
+    (awful.placement.bottom_right)(c, { margins = { right = 10, bottom = 60 } })
   end,
 }
 

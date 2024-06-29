@@ -113,6 +113,8 @@ gears.timer {
   end
 }
 
+M.vol()
+
 M.set_vol = function(val)
   awful.spawn.with_shell('killall pulsemixer; pulsemixer --set-volume ' .. tonumber(val))
 end

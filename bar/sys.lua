@@ -31,7 +31,7 @@ M.bat = wibox.widget {
 -- Clock
 M.clock = wibox.widget {
   font = beautiful.barfont,
-  format="%H\n%M",
+  format="%H:%M",
   refresh=1,
   align = 'center',
   valign = 'center',
