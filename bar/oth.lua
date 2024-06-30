@@ -30,6 +30,7 @@ M.search = btn('', c'rofi -show drun -config ~/.config/awesome/rofi/config.ra
 
 -- M.col = btn('', c'sleep 0.1s; /usr/local/bin/pluck', _, _, 10)
 M.scr = btn('', c'flameshot gui', _, _, 10)
+M.off = btn('', c'systemctl poweroff', _, _, 10)
 
 
 return M

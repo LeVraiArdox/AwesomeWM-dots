@@ -31,7 +31,7 @@ local sys = wibox.widget {
 local opt = wibox.widget {
   {
     oth.scr,
-    oth.cal,
+    oth.off,
     -- oth.col,
     spacing = dpi(10),
     layout = wibox.layout.fixed.horizontal,
