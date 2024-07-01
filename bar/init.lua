@@ -31,6 +31,7 @@ local sys = wibox.widget {
 local opt = wibox.widget {
   {
     oth.scr,
+    oth.cal,
     oth.off,
     -- oth.col,
     spacing = dpi(10),
@@ -40,17 +41,6 @@ local opt = wibox.widget {
   bg = beautiful.bg,
   widget = wibox.container.background,
 }
-
---local trayico = wibox.widget {
---  {
---    tray,
---    spacing = dpi(10),
---    layout = wibox.layout.fixed.horizontal,
---  },
---  shape = help.rrect(beautiful.br),
---  bg = beautiful.bg,
---  widget = wibox.container.background,
---}
 
 sys:buttons(gears.table.join(
   awful.button({}, 1, function ()
@@ -97,7 +87,7 @@ awful.screen.connect_for_each_screen(function(s)
     { -- Right
       {
         opt,
-        --trayico,
+        tray,
         sys,
         spacing = dpi(10),
         layout = wibox.layout.fixed.horizontal,

@@ -17,7 +17,7 @@ styles.normal = {
 
 styles.focus   = {
 	fg_color = beautiful.bg,
-	bg_color = beautiful.fg,
+	bg_color = beautiful.purple,
 }
 
 styles.weekday = {
@@ -137,10 +137,10 @@ local calendar_widget = awful.popup {
 	border_color = beautiful.border_color,
 	minimum_height = 330,
 	maximum_height = 380,
-	minimum_width = 346,
-	maximum_width = 346,
+	minimum_width = 300,
+	maximum_width = 300,
 	placement = function(d)
-		awful.placement.top_left(d, {
+		awful.placement.bottom_right(d, {
 			honor_workarea = true,
 			margins = beautiful.useless_gap * 4 + beautiful.border_width * 2
 		})
@@ -151,7 +151,6 @@ local calendar_widget = awful.popup {
 -- summon functions --
 
 awesome.connect_signal("open::calendar", function()
-	awesome.emit_signal("bar::calendar")
 	calendar:set_date(os.date("*t"))
 	calendar_widget.visible = not calendar_widget.visible
 end)
@@ -171,3 +170,4 @@ awful.mouse.append_global_mousebinding(
 		end
 	end)
 )
+

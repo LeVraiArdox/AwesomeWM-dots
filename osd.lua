@@ -54,7 +54,7 @@ local osd = awful.popup {
 	minimum_width = 270,
 	maximum_width = 270,
 	placement = function(d)
-		awful.placement.bottom(d, { margins = 20 + beautiful.border_width * 2 })
+		awful.placement.top(d, { margins = 20 + beautiful.border_width * 2 })
 	end,
 	widget = info,
 }

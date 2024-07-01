@@ -1,6 +1,8 @@
 local wid = require("dashboard.wid")
 local sli = require("dashboard.sli")
+
 local batval
+
 awesome.connect_signal('bat::value', function(val)
   batval = val
 end)
