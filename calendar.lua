@@ -30,14 +30,14 @@ local function create_calendar_button(icon)
 	{
 		widget = wibox.widget.textbox,
 		text = icon,
-		font = beautiful.font .. " 20",
+		font = beautiful.icofont,
 	}
 }
 return widget
 end
 
-local button_next = create_calendar_button("")
-local button_back = create_calendar_button("")
+local button_next = create_calendar_button("")
+local button_back = create_calendar_button("")
 
 local function decorate_cell(widget, flag, date)
 	local cur_date = os.date("*t")
@@ -142,7 +142,7 @@ local calendar_widget = awful.popup {
 	placement = function(d)
 		awful.placement.bottom_right(d, {
 			honor_workarea = true,
-			margins = beautiful.useless_gap * 4 + beautiful.border_width * 2
+			margins = beautiful.useless_gap + beautiful.border_width
 		})
 	end,
 	widget = main

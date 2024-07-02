@@ -22,7 +22,7 @@ local c = function (a) return function() awful.spawn.with_shell(a) end end
 
 M.search = btn('', c'rofi -show drun -config ~/.config/awesome/rofi/config.rasi', _, _, 10)
 M.off = btn('', c'systemctl poweroff', _, _, 10)
-M.cal = btn('', c'', _, _, 10)
+M.cal = btn('', c'sh ~/.config/awesome/scripts/open-calendar.sh', _, _, 10)
 M.scr = btn('', c'flameshot gui', _, _, 10)
 
 return M
