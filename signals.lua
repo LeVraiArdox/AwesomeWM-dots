@@ -150,6 +150,7 @@ check_net()
 check_blu()
 check_temp()
 
+-- This one is a particular case, i don't like it
 M.vol()
 
 -- Subscribtions
